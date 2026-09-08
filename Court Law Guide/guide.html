@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CourtGuide - Guide</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================
+           GUIDE PAGE
+        ========================= */
+
+        .guide-page {
+            background: #f5f3ee;
+        }
+
+        .guide-header {
+            background: linear-gradient(
+                135deg,
+                #071722,
+                #0b1d2a,
+                #19384b
+            );
+
+            color: white;
+            padding: 70px 0;
+        }
+
+        .guide-header h1 {
+            margin: 0 0 15px;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 55px;
+        }
+
+        .guide-header h1 span {
+            color: #d7b568;
+        }
+
+        .guide-header p {
+            max-width: 700px;
+
+            color: #c5d0d6;
+
+            line-height: 1.7;
+
+            margin: 0;
+        }
+
+
+        /* =========================
+           GUIDE CONTENT
+        ========================= */
+
+        .guide-content {
+            padding: 60px 0 80px;
+        }
+
+
+        /* =========================
+           GUIDE TABS
+        ========================= */
+
+        .guide-tabs {
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin-bottom: 30px;
+        }
+
+        .guide-tab {
+            padding: 13px 20px;
+
+            border: 2px solid #ddd8ce;
+
+            border-radius: 12px;
+
+            background: white;
+
+            color: #4e5d67;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.25s ease;
+        }
+
+        .guide-tab:hover {
+            background: #faf5e9;
+
+            border-color: #c8a45d;
+
+            color: #8b682c;
+
+            transform: translateY(-2px);
+        }
+
+        .guide-tab.active {
+            background: linear-gradient(
+                135deg,
+                #19384b,
+                #0b1d2a
+            );
+
+            color: white;
+
+            border-color: #0b1d2a;
+
+            box-shadow:
+                0 8px 20px
+                rgba(11, 29, 42, 0.2);
+        }
+
+
+        /* =========================
+           GUIDE SECTIONS
+        ========================= */
+
+        .guide-section {
+            display: none;
+
+            max-width: 1100px;
+
+            margin: 0 auto;
+
+            padding: 35px;
+
+            background: white;
+
+            border: 1px solid #dedbd3;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 8px 30px
+                rgba(0, 0, 0, 0.06);
+
+            animation: guideFade 0.3s ease;
+        }
+
+        .guide-section.active {
+            display: block;
+        }
+
+        @keyframes guideFade {
+
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        .guide-section h2 {
+            margin: 0 0 10px;
+
+            color: #0b1d2a;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 34px;
+        }
+
+        .guide-intro {
+            color: #687681;
+
+            line-height: 1.7;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================
+           CARDS
+        ========================= */
+
+        .guide-cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .guide-card {
+            padding: 25px;
+
+            background: white;
+
+            border: 1px solid #e2ded5;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 5px 18px
+                rgba(0, 0, 0, 0.05);
+
+            transition: 0.25s ease;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-5px);
+
+            border-color: #c8a45d;
+
+            box-shadow:
+                0 12px 28px
+                rgba(0, 0, 0, 0.10);
+        }
+
+        .guide-icon {
+            width: 48px;
+
+            height: 48px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 15px;
+
+            border-radius: 12px;
+
+            background: #f3ead7;
+
+            font-size: 21px;
+        }
+
+        .guide-card h3 {
+            margin: 0 0 10px;
+
+            color: #0b1d2a;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 20px;
+        }
+
+        .guide-card p {
+            margin: 0;
+
+            color: #687681;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+        .guide-card.warning {
+            background: #fff8e8;
+
+            border-color: #ead8aa;
+        }
+
+        .guide-card.success {
+            background: #f0faf5;
+
+            border-color: #c9e4d5;
+        }
+
+
+        /* =========================
+           COURT PROCESS
+        ========================= */
+
+        .process-note {
+            margin-top: 25px;
+
+            padding: 25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #071722,
+                    #19384b
+                );
+
+            color: white;
+
+            border-radius: 15px;
+        }
+
+        .process-note h3 {
+            margin: 0 0 8px;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+        }
+
+        .process-note p {
+            margin: 0;
+
+            color: #c5d0d6;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           FAQ
+        ========================= */
+
+        .faq-list {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+        }
+
+        .faq-item {
+            overflow: hidden;
+
+            border: 1px solid #dedbd3;
+
+            border-radius: 13px;
+
+            background: white;
+
+            transition: 0.2s ease;
+        }
+
+        .faq-item:hover {
+            border-color: #c8a45d;
+
+            box-shadow:
+                0 5px 18px
+                rgba(0, 0, 0, 0.06);
+        }
+
+        .faq-question {
+            width: 100%;
+
+            min-height: 65px;
+
+            padding: 17px 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            border: none;
+
+            background: white;
+
+            color: #0b1d2a;
+
+            text-align: left;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .faq-plus {
+            flex-shrink: 0;
+
+            width: 34px;
+
+            height: 34px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #f1e8d5;
+
+            color: #8b682c;
+
+            font-size: 21px;
+
+            transition: 0.25s ease;
+        }
+
+        .faq-question.open .faq-plus {
+            transform: rotate(45deg);
+
+            background: #d7b568;
+
+            color: #0b1d2a;
+        }
+
+        .faq-answer {
+            max-height: 0;
+
+            overflow: hidden;
+
+            background: #faf9f5;
+
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer p {
+            margin: 0;
+
+            padding: 0 20px 20px;
+
+            color: #687681;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .guide-cards {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .guide-header h1 {
+                font-size: 42px;
+            }
+
+            .guide-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .guide-section {
+                padding: 22px;
+            }
+
+            .guide-tab {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="guide-page">
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <header class="navbar">
+
+        <div class="container nav-container">
+
+            <a href="index.html" class="logo">
+                ⚖ CourtGuide
+            </a>
+
+            <nav>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="guide.html" class="active">
+                    Guide
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+            </nav>
+
+            <a href="guide.html" class="nav-button">
+                Start Guide
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         GUIDE HEADER
+    ========================= -->
+
+    <section class="guide-header">
+
+        <div class="container">
+
+            <h1>
+                Court <span>Guide</span>
+            </h1>
+
+            <p>
+                Learn about the different people involved in a
+                court case, the general court process, and answers
+                to common questions.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MAIN GUIDE
+    ========================= -->
+
+    <main class="guide-content">
+
+        <div class="container">
+
+
+            <!-- =========================
+                 TABS
+            ========================= -->
+
+            <div class="guide-tabs">
+
+                <button
+                    class="guide-tab"
+                    data-section="roles"
+                    onclick="openGuide('roles', this)">
+                    Who Is Who
+                </button>
+
+                <button
+                    class="guide-tab"
+                    data-section="defendant"
+                    onclick="openGuide('defendant', this)">
+                    Defendant
+                </button>
+
+                <button
+                    class="guide-tab"
+                    data-section="plaintiff"
+                    onclick="openGuide('plaintiff', this)">
+                    Plaintiff
+                </button>
+
+                <button
+                    class="guide-tab"
+                    data-section="witness"
+                    onclick="openGuide('witness', this)">
+                    Witness
+                </button>
+
+                <button
+                    class="guide-tab"
+                    data-section="process"
+                    onclick="openGuide('process', this)">
+                    Court Process
+                </button>
+
+                <button
+                    class="guide-tab"
+                    data-section="faq"
+                    onclick="openGuide('faq', this)">
+                    FAQ
+                </button>
+
+            </div>
+
+
+            <!-- ==================================================
+                 WHO IS WHO
+            ================================================== -->
+
+            <section
+                id="roles"
+                class="guide-section">
+
+                <h2>
+                    Who Is Who?
+                </h2>
+
+                <p class="guide-intro">
+                    Court cases can involve many different people.
+                    Select the role that best describes the person
+                    you want to learn about.
+                </p>
+
+
+                <div class="guide-cards">
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            🛡️
+                        </div>
+
+                        <h3>
+                            Defendant
+                        </h3>
+
+                        <p>
+                            The person or party responding to a
+                            legal claim or accusation.
+                        </p>
+
+                    </div>
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            📄
+                        </div>
+
+                        <h3>
+                            Plaintiff
+                        </h3>
+
+                        <p>
+                            The person or party who generally brings
+                            a civil claim against another party.
+                        </p>
+
+                    </div>
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            👁️
+                        </div>
+
+                        <h3>
+                            Witness
+                        </h3>
+
+                        <p>
+                            A person who may provide information
+                            about events or facts relevant to a case.
+                        </p>
+
+                    </div>
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            ⚖️
+                        </div>
+
+                        <h3>
+                            Judge
+                        </h3>
+
+                        <p>
+                            A judicial officer who handles matters
+                            brought before the court.
+                        </p>
+
+                    </div>
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            👨‍⚖️
+                        </div>
+
+                        <h3>
+                            Lawyer
+                        </h3>
+                    
+                        <p>
+                            A legal professional who may represent
+                            or advise a person involved in a case.
+                        </p>
+
+                    </div>
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            🏛️
+                        </div>
+
+                        <h3>
+                            Court
+                        </h3>
+
+                        <p>
+                            The institution where legal proceedings
+                            are heard and decided.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 DEFENDANT
+            ================================================== -->
+
+            <section
+                id="defendant"
+                class="guide-section">
+
+                <h2>
+                    Defendant Guide
+                </h2>
+
+                <p class="guide-intro">
+                    A defendant is generally the person or party
+                    responding to a legal claim or accusation.
+                </p>
+
+
+                <div class="guide-cards">
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            📄
+                        </div>
+
+                        <h3>
+                            Read Your Documents
+                        </h3>
+
+                        <p>
+                            Carefully review summonses, complaints,
+                            charges, notices, and other court documents.
+                        </p>
+
+                    </div>
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            📅
+                        </div>
+
+                        <h3>
+                            Know Your Deadlines
+                        </h3>
+
+                        <p>
+                            Check your official documents for response
+                            deadlines, hearings, and other important dates.
+                        </p>
+
+                    </div>
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            📁
+                        </div>
+
+                        <h3>
+                            Organize Evidence
+                        </h3>
+
+                        <p>
+                            Keep relevant documents, photographs,
+                            messages, and records organized.
+                        </p>
+
+                    </div>
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            🏛️
+                        </div>
+
+                        <h3>
+                            Attend Court
+                        </h3>
+
+                        <p>
+                            Follow the instructions in your official
+                            court documents and arrive prepared.
+                        </p>
+
+                    </div>
+
+
+                    <div class="guide-card warning">
+
+                        <div class="guide-icon">
+                            ⚠️
+                        </div>
+
+                        <h3>
+                            Don't Ignore Notices
+                        </h3>
+
+                        <p>
+                            Court notices may contain important
+                            deadlines or instructions.
+                        </p>
+
+                    </div>
+
+
+                    <div class="guide-card success">
+
+                        <div class="guide-icon">
+                            ✓
+                        </div>
+
+                        <h3>
+                            Stay Organized
+                        </h3>
+
+                        <p>
+                            Keep copies of documents, evidence,
+                            correspondence, and court orders together.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 PLAINTIFF
+            ================================================== -->
+
+            <section
+                id="plaintiff"
+                class="guide-section">
+
+                <h2>
+                    Plaintiff Guide
+                </h2>
+
+                <p class="guide-intro">
+                    A plaintiff is generally the person or party
+                    who brings a civil claim against another party.
+                </p>
+
+
+                <div class="guide-cards">
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            📝
+                        </div>
+
+                        <h3>
+                            Understand Your Claim
+                        </h3>
+
+                        <p>
+                            Clearly identify what happened, who is
+                            involved, and what outcome you are seeking.
+                        </p>
+
+                    </div>
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            📁
+                        </div>
+
+                        <h3>
+                            Gather Evidence
+                        </h3>
+
+                        <p>
+                            Organize documents, photographs, messages,
+                            records, and other relevant information.
+                        </p>
+
+                    </div>
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            📋
+                        </div>
+
+                        <h3>
+                            Complete Forms
+                        </h3>
+
+                        <p>
+                            Complete required court forms accurately
+                            and follow applicable filing procedures.
+                        </p>
+
+                    </div>
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            📅
+                        </div>
+
+                        <h3>
+                            Track Your Dates
+                        </h3>
+
+                        <p>
+                            Keep track of filing deadlines, hearings,
+                            meetings, and other important dates.
+                        </p>
+
+                    </div>
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            🏛️
+                        </div>
+
+                        <h3>
+                            Prepare for Court
+                        </h3>
+
+                        <p>
+                            Review your documents beforehand and
+                            bring anything the court requires.
+                        </p>
+
+                    </div>
+
+
+                    <div class="guide-card success">
+
+                        <div class="guide-icon">
+                            ✓
+                        </div>
+
+                        <h3>
+                            Keep Records
+                        </h3>
+
+                        <p>
+                            Keep copies of filings, correspondence,
+                            evidence, and court orders.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 WITNESS
+            ================================================== -->
+
+            <section
+                id="witness"
+                class="guide-section">
+
+                <h2>
+                    Witness Guide
+                </h2>
+
+                <p class="guide-intro">
+                    A witness may provide information about events
+                    or facts relevant to a case.
+                </p>
+
+
+                <div class="guide-cards">
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            👁️
+                        </div>
+
+                        <h3>
+                            Know What You Know
+                        </h3>
+
+                        <p>
+                            Focus on what you personally saw, heard,
+                            experienced, or otherwise know.
+                        </p>
+
+                    </div>
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            🗣️
+                        </div>
+
+                        <h3>
+                            Tell the Truth
+                        </h3>
+
+                        <p>
+                            Give honest answers and do not intentionally
+                            change or exaggerate information.
+                        </p>
+
+                    </div>
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            ❓
+                        </div>
+
+                        <h3>
+                            Listen Carefully
+                        </h3>
+
+                        <p>
+                            Listen to each question carefully before
+                            answering.
+                        </p>
+
+                    </div>
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            🤔
+                        </div>
+
+                        <h3>
+                            Don't Guess
+                        </h3>
+
+                        <p>
+                            If you do not remember or do not know,
+                            say so rather than guessing.
+                        </p>
+
+                    </div>
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            🏛️
+                        </div>
+
+                        <h3>
+                            Follow Instructions
+                        </h3>
+
+                        <p>
+                            Follow instructions provided by the
+                            court regarding your appearance.
+                        </p>
+
+                    </div>
+
+
+                    <div class="guide-card warning">
+
+                        <div class="guide-icon">
+                            ⚠️
+                        </div>
+
+                        <h3>
+                            Handle Information Carefully
+                        </h3>
+
+                        <p>
+                            Follow any applicable restrictions about
+                            discussing testimony or case information.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 COURT PROCESS
+            ================================================== -->
+
+            <section
+                id="process"
+                class="guide-section">
+
+                <h2>
+                    Court Process
+                </h2>
+
+                <p class="guide-intro">
+                    This is a simplified overview of steps that
+                    may occur in a court case. Actual procedures
+                    vary depending on the type of case and location.
+                </p>
+
+
+                <div class="guide-cards">
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            📄
+                        </div>
+
+                        <h3>
+                            1. Filing
+                        </h3>
+
+                        <p>
+                            A case generally begins when appropriate
+                            documents are filed with the court.
+                        </p>
+
+                    </div>
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            📬
+                        </div>
+
+                        <h3>
+                            2. Notice
+                        </h3>
+
+                        <p>
+                            The other party may receive formal notice
+                            of the case or claim.
+                        </p>
+
+                    </div>
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            📝
+                        </div>
+
+                        <h3>
+                            3. Response
+                        </h3>
+
+                        <p>
+                            Depending on the case, the responding
+                            party may have an opportunity to answer.
+                        </p>
+
+                    </div>
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            🔎
+                        </div>
+
+                        <h3>
+                            4. Preparation
+                        </h3>
+
+                        <p>
+                            Parties may gather documents, identify
+                            evidence, and prepare their arguments.
+                        </p>
+
+                    </div>
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            🏛️
+                        </div>
+
+                        <h3>
+                            5. Hearing or Trial
+                        </h3>
+
+                        <p>
+                            The court may hear arguments, testimony,
+                            and evidence according to applicable rules.
+                        </p>
+
+                    </div>
+
+
+                    <div class="guide-card">
+
+                        <div class="guide-icon">
+                            ⚖️
+                        </div>
+
+                        <h3>
+                            6. Decision
+                        </h3>
+
+                        <p>
+                            The court may issue a judgment, order,
+                            or another decision.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="process-note">
+
+                    <h3>
+                        Important!!!
+                    </h3>
+
+                    <p>
+                        Court procedures can differ significantly
+                        depending on the jurisdiction and type of case.
+                        Always check official court information for
+                        the rules that apply to your situation.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 FAQ
+            ================================================== -->
+
+            <section
+                id="faq"
+                class="guide-section">
+
+                <h2>
+                    Frequently Asked Questions
+                </h2>
+
+                <p class="guide-intro">
+                    Click a question to reveal its answer.
+                </p>
+
+
+                <div class="faq-list">
+
+
+                    <!-- FAQ 1 -->
+
+                    <div class="faq-item">
+
+                        <button
+                            type="button"
+                            class="faq-question"
+                            onclick="toggleFAQ(this)">
+
+                            <span>
+                                Do I need a lawyer?
+                            </span>
+
+                            <span class="faq-plus">
+                                +
+                            </span>
+
+                        </button>
+
+
+                        <div class="faq-answer">
+
+                            <p>
+                                It depends on your situation, the
+                                type of case, and the rules that
+                                apply where your case is being heard.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FAQ 2 -->
+
+                    <div class="faq-item">
+
+                        <button
+                            type="button"
+                            class="faq-question"
+                            onclick="toggleFAQ(this)">
+
+                            <span>
+                                What should I bring to court?
+                            </span>
+
+                            <span class="faq-plus">
+                                +
+                            </span>
+
+                        </button>
+
+
+                        <div class="faq-answer">
+
+                            <p>
+                                Bring documents, identification,
+                                or other materials that your court
+                                documents specifically require.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FAQ 3 -->
+
+                    <div class="faq-item">
+
+                        <button
+                            type="button"
+                            class="faq-question"
+                            onclick="toggleFAQ(this)">
+
+                            <span>
+                                What happens if I miss my court date?
+                            </span>
+
+                            <span class="faq-plus">
+                                +
+                            </span>
+
+                        </button>
+
+
+                        <div class="faq-answer">
+
+                            <p>
+                                Missing a court date can have serious
+                                consequences. Check your court documents
+                                and contact the appropriate court or a
+                                qualified legal professional as soon as
+                                possible.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FAQ 4 -->
+
+                    <div class="faq-item">
+
+                        <button
+                            type="button"
+                            class="faq-question"
+                            onclick="toggleFAQ(this)">
+
+                            <span>
+                                Can I represent myself?
+                            </span>
+
+                            <span class="faq-plus">
+                                +
+                            </span>
+
+                        </button>
+
+
+                        <div class="faq-answer">
+
+                            <p>
+                                In many situations people can represent
+                                themselves, but the rules depend on the
+                                jurisdiction and type of case.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FAQ 5 -->
+
+                    <div class="faq-item">
+
+                        <button
+                            type="button"
+                            class="faq-question"
+                            onclick="toggleFAQ(this)">
+
+                            <span>
+                                Where can I find my court date?
+                            </span>
+
+                            <span class="faq-plus">
+                                +
+                            </span>
+
+                        </button>
+
+
+                        <div class="faq-answer">
+
+                            <p>
+                                Check your official court documents
+                                or the appropriate court's official
+                                information system.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FAQ 6 -->
+
+                    <div class="faq-item">
+
+                        <button
+                            type="button"
+                            class="faq-question"
+                            onclick="toggleFAQ(this)">
+
+                            <span>
+                                Is CourtGuide legal advice?
+                            </span>
+
+                            <span class="faq-plus">
+                                +
+                            </span>
+
+                        </button>
+
+
+                        <div class="faq-answer">
+
+                            <p>
+                                No. CourtGuide provides general
+                                educational information and does not
+                                replace advice from a qualified legal
+                                professional.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div>
+
+                    <strong>
+                        ⚖ CourtGuide
+                    </strong>
+
+                    <p>
+                        Making court information easier to understand.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-links">
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="guide.html">
+                        Guide
+                    </a>
+
+                    <a href="about.html">
+                        About
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                © 2026 CourtGuide. For educational purposes only.
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        /* =========================
+           OPEN GUIDE SECTION
+        ========================= */
+
+        function openGuide(sectionId, button) {
+
+            /*
+             * Hide every section.
+             */
+
+            const sections =
+                document.querySelectorAll(
+                    ".guide-section"
+                );
+
+            sections.forEach(function(section) {
+
+                section.classList.remove("active");
+
+            });
+
+
+            /*
+             * Remove active state
+             * from every tab.
+             */
+
+            const tabs =
+                document.querySelectorAll(
+                    ".guide-tab"
+                );
+
+            tabs.forEach(function(tab) {
+
+                tab.classList.remove("active");
+
+            });
+
+
+            /*
+             * Show selected section.
+             */
+
+            const selected =
+                document.getElementById(sectionId);
+
+            if (selected) {
+
+                selected.classList.add("active");
+
+            }
+
+
+            /*
+             * Highlight selected tab.
+             */
+
+            if (button) {
+
+                button.classList.add("active");
+
+            }
+
+
+            /*
+             * Change URL.
+             *
+             * Example:
+             * guide.html?section=defendant
+             */
+
+            window.history.replaceState(
+                {},
+                "",
+                "guide.html?section=" + sectionId
+            );
+
+        }
+
+
+        /* =========================
+           LOAD SECTION FROM URL
+        ========================= */
+
+        function loadGuideSection() {
+
+            const params =
+                new URLSearchParams(
+                    window.location.search
+                );
+
+
+            let section =
+                params.get("section");
+
+
+            /*
+             * Default section.
+             */
+
+            if (!section) {
+
+                section = "roles";
+
+            }
+
+
+            /*
+             * Check whether the requested
+             * section actually exists.
+             */
+
+            const selected =
+                document.getElementById(section);
+
+
+            if (!selected) {
+
+                section = "roles";
+
+            }
+
+
+            /*
+             * Find matching tab.
+             */
+
+            const button =
+                document.querySelector(
+                    '.guide-tab[data-section="' +
+                    section +
+                    '"]'
+                );
+
+
+            openGuide(
+                section,
+                button
+            );
+
+        }
+
+
+        /* =========================
+           FAQ ACCORDION
+        ========================= */
+
+        function toggleFAQ(button) {
+
+            const answer =
+                button.nextElementSibling;
+
+
+            const isOpen =
+                button.classList.contains("open");
+
+
+            /*
+             * Close all FAQ answers.
+             */
+
+            document
+                .querySelectorAll(".faq-question")
+                .forEach(function(item) {
+
+                    item.classList.remove("open");
+
+                });
+
+
+            document
+                .querySelectorAll(".faq-answer")
+                .forEach(function(item) {
+
+                    item.style.maxHeight = null;
+
+                });
+
+
+            /*
+             * Open clicked FAQ.
+             */
+
+            if (!isOpen) {
+
+                button.classList.add("open");
+
+                answer.style.maxHeight =
+                    answer.scrollHeight + "px";
+
+            }
+
+        }
+
+
+        /* =========================
+           START PAGE
+        ========================= */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function() {
+
+                loadGuideSection();
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
