@@ -1635,3 +1635,108 @@ css
 
 .mixboyzzz a{translate: 120px;
 font-family: 'Courier New', Courier, monospace;}
+
+/* =========================
+   CONTACT PAGE
+========================= */
+
+.contact-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 25px;
+}
+
+.contact-hero {
+    max-width: 700px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.contact-hero h1 {
+    margin: 12px 0 18px;
+    color: #061b2f;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(34px, 5vw, 56px);
+}
+
+.contact-hero p {
+    color: #6d7982;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.contact-card {
+    padding: 30px 25px;
+    background: white;
+    border: 1px solid #dedbd3;
+    border-radius: 16px;
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(6, 27, 47, 0.10);
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #f3ead7;
+    font-size: 26px;
+}
+
+.contact-card h2 {
+    margin-bottom: 14px;
+    color: #061b2f;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 24px;
+}
+
+.contact-card p {
+    color: #6d7982;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.contact-message {
+    max-width: 700px;
+    margin: 45px auto 0;
+    padding: 35px 25px;
+    border-radius: 16px;
+    background: #061b2f;
+    text-align: center;
+}
+
+.contact-message h2 {
+    margin-bottom: 12px;
+    color: #d7b568;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.contact-message p {
+    margin: 0;
+    color: #f5f3ee;
+    line-height: 1.8;
+}
+
+@media (max-width: 800px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-page {
+        padding: 55px 20px;
+    }
+}
